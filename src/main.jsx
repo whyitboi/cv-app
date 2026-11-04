@@ -1,14 +1,10 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
-import { App } from "./App.jsx";
-import { Greeting } from "./Greeting.jsx";
-import { More } from "./test.jsx";
+import { GeneralInfo } from "./components/GeneralInfo";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    {/* <App />
-    <Greeting />
-    <More /> */}
+    <GeneralInfo />
   </StrictMode>,
 );

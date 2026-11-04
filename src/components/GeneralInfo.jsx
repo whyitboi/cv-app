@@ -19,7 +19,12 @@ export function GeneralInfo() {
   }
   const fullname = `${info.firstName} ${info.lastName}`;
   return isEditing ? (
-    <form>
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        setIsEditing(false);
+      }}
+    >
       <fieldset>
         <legend>General Information</legend>
         <label>
@@ -124,15 +129,7 @@ export function GeneralInfo() {
           />
         </label>
       </fieldset>
-      <button
-        type="submit"
-        onSubmit={(e) => {
-          e.preventDefault();
-          setIsEditing(false);
-        }}
-      >
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
   ) : (
     <section>
@@ -140,18 +137,24 @@ export function GeneralInfo() {
       <p>{info.jobTitle}</p>
       <address>
         <ul>
-          {/* <li> <a href={mailto:${info.email}} > </li>  
-            <li> <a href={tel:${info.phone}} /> </li>   */}
+          <li>
+            {" "}
+            <a href={`mailto:${info.email}`}>{info.email}</a>
+          </li>
+          <li>
+            {" "}
+            <a href={`tel:${info.phone}`}>{info.phone}</a>
+          </li>
           <li>
             <p>{info.location}</p>
           </li>
         </ul>
       </address>
-      <a href={info.website} />
-      <a href={info.linkedin} />
-      <a href={info.github} />
+      <a href={info.website}>Portfolio</a>
+      <a href={info.linkedin}>LinkedIn</a>
+      <a href={info.github}>Github</a>
       <p> {info.summary} </p>
-      <button onClick={setIsEditing(true)}>Edit</button>
+      <button onClick={() => setIsEditing(true)}>Edit</button>
     </section>
   );
 }
