@@ -7,8 +7,8 @@ import { More } from "./test.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App />
+    {/* <App />
     <Greeting />
-    <More />
+    <More /> */}
   </StrictMode>,
 );
