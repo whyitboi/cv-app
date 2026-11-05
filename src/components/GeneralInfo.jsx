@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import "./style.css";
+
 export function GeneralInfo() {
   const [isEditing, setIsEditing] = useState(true);
   const [info, setInfo] = useState({
@@ -138,22 +140,31 @@ export function GeneralInfo() {
       <address>
         <ul>
           <li>
-            {" "}
             <a href={`mailto:${info.email}`}>{info.email}</a>
           </li>
           <li>
-            {" "}
             <a href={`tel:${info.phone}`}>{info.phone}</a>
           </li>
-          <li>
-            <p>{info.location}</p>
-          </li>
+          <li>{info.location} </li>
+          {info.website && (
+            <li>
+              <a href={info.website}>Portfolio</a>
+            </li>
+          )}
+          {info.linkedin && (
+            <li>
+              <a href={info.linkedin}>LinkedIn</a>
+            </li>
+          )}
+          {info.github && (
+            <li>
+              <a href={info.github}>Github</a>
+            </li>
+          )}
         </ul>
       </address>
-      <a href={info.website}>Portfolio</a>
-      <a href={info.linkedin}>LinkedIn</a>
-      <a href={info.github}>Github</a>
-      <p> {info.summary} </p>
+
+      {info.summary && <p> {info.summary} </p>}
       <button onClick={() => setIsEditing(true)}>Edit</button>
     </section>
   );
