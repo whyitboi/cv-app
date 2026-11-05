@@ -12,10 +12,13 @@ export function Education() {
     },
   ]);
   function handleChange(e, id) {
-    schoolInfo.map((school) => {
-      school.id === id;
-    });
-    setSchoolInfo([{ ...schoolInfo, [e.target.name]: e.target.value }]);
+    setSchoolInfo(
+      schoolInfo.map((school) =>
+        school.id === id
+          ? { ...school, [e.target.name]: e.target.value }
+          : school,
+      ),
+    );
   }
   function addSchool() {
     setSchoolInfo([
@@ -28,6 +31,15 @@ export function Education() {
         endDate: "",
       },
     ]);
+  }
+  function removeSchool(e, id) {
+    setSchoolInfo(
+      schoolInfo.filter((school) =>
+        school.id !== id
+          ? { ...school, [e.target.name]: e.target.value }
+          : null,
+      ),
+    );
   }
 
   return isEditing ? (
@@ -59,7 +71,7 @@ export function Education() {
                 type="text"
                 name="degree"
                 value={school.degree}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, school.id)}
                 required
               />
             </label>
@@ -69,7 +81,7 @@ export function Education() {
                 type="month"
                 name="startDate"
                 value={school.startDate}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, school.id)}
               />
             </label>
             <label>
@@ -78,10 +90,12 @@ export function Education() {
                 type="month"
                 name="endDate"
                 value={school.endDate}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, school.id)}
               />
             </label>
-            <button type="button">Remove</button>
+            <button type="button" onClick={() => removeSchool()}>
+              Remove
+            </button>
           </fieldset>
         ))}
 
