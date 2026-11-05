@@ -32,14 +32,8 @@ export function Education() {
       },
     ]);
   }
-  function removeSchool(e, id) {
-    setSchoolInfo(
-      schoolInfo.filter((school) =>
-        school.id !== id
-          ? { ...school, [e.target.name]: e.target.value }
-          : null,
-      ),
-    );
+  function removeSchool(id) {
+    setSchoolInfo(schoolInfo.filter((school) => school.id !== id));
   }
 
   return isEditing ? (
@@ -93,7 +87,7 @@ export function Education() {
                 onChange={(e) => handleChange(e, school.id)}
               />
             </label>
-            <button type="button" onClick={() => removeSchool()}>
+            <button type="button" onClick={() => removeSchool(school.id)}>
               Remove
             </button>
           </fieldset>
@@ -108,10 +102,13 @@ export function Education() {
   ) : (
     <section>
       <h2>Education</h2>
-      {/* Shouldn't I have created an array that I can render here using map? */}
-      <article>
-        <h3></h3>
-      </article>
+      {schoolInfo.map((school) => (
+        <article>
+          <h3>{school.schoolName}</h3>
+          <p>{}</p>
+        </article>
+      ))}
+      <article></article>
     </section>
   );
 }
