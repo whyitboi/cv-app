@@ -3,11 +3,31 @@ import { useState } from "react";
 export function Education() {
   const [isEditing, setIsEditing] = useState(true);
   const [schoolInfo, setSchoolInfo] = useState([
-    { id: crypto.randomUUID(), schoolName: "", startDate: "", endDate: "" },
-    // { id: crypto.randomUUID(), schoolName: "", startDate: "", endDate: "" },
+    {
+      id: crypto.randomUUID(),
+      schoolName: "",
+      degree: "",
+      startDate: "",
+      endDate: "",
+    },
   ]);
-  function handleChange(e) {
+  function handleChange(e, id) {
+    schoolInfo.map((school) => {
+      school.id === id;
+    });
     setSchoolInfo([{ ...schoolInfo, [e.target.name]: e.target.value }]);
+  }
+  function addSchool() {
+    setSchoolInfo([
+      ...schoolInfo,
+      {
+        id: crypto.randomUUID(),
+        schoolName: "",
+        degree: "",
+        startDate: "",
+        endDate: "",
+      },
+    ]);
   }
 
   return isEditing ? (
@@ -19,16 +39,16 @@ export function Education() {
     >
       <fieldset>
         <legend>Education</legend>
-        {schoolInfo.map((school, index) => {
+        {schoolInfo.map((school, index) => (
           <fieldset key={school.id}>
-            <legend>School{index + 1}</legend>
+            <legend>School {index + 1}</legend>
             <label>
               School/University
               <input
                 type="text"
-                name="school"
+                name="schoolName"
                 value={school.schoolName}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, school.id)}
                 autoComplete="off"
                 required
               />
@@ -62,10 +82,12 @@ export function Education() {
               />
             </label>
             <button type="button">Remove</button>
-          </fieldset>;
-        })}
+          </fieldset>
+        ))}
 
-        <button type="button">Add</button>
+        <button type="button" onClick={() => addSchool()}>
+          Add
+        </button>
       </fieldset>
       <button type="submit">Submit</button>
     </form>
