@@ -1,7 +1,7 @@
 import { GeneralInfo } from "./components/GeneralInfo";
 import { Education } from "./components/Education";
 import { WorkExperience } from "./components/WorkExperience";
-import "./style.css";
+import "./styles/style.css";
 
 export default function App() {
   return (
