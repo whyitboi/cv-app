@@ -105,10 +105,10 @@ export function Education() {
       {schoolInfo.map((school) => (
         <article>
           <h3>{school.schoolName}</h3>
-          <p>{}</p>
+          <p>{`${school.degree} ${school.startDate} - ${school.endDate}`}</p>
         </article>
       ))}
-      <article></article>
+      <button onClick={() => setIsEditing(true)}>Edit</button>
     </section>
   );
 }
