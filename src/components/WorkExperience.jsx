@@ -102,13 +102,14 @@ export function WorkExperience() {
                 type="button"
                 onClick={() => removeJob(job.id)}
                 aria-label={`Remove job ${index + 1}`}
+                className="remove-btn"
               >
                 Remove
               </button>
             )}
           </fieldset>
         ))}
-        <button type="button" onClick={() => addJob()}>
+        <button type="button" onClick={() => addJob()} className="add-btn">
           Add
         </button>
       </fieldset>

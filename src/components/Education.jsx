@@ -93,6 +93,7 @@ export function Education() {
                 type="button"
                 onClick={() => removeSchool(school.id)}
                 aria-label={`Remove school ${index + 1}`}
+                className="remove-btn"
               >
                 Remove
               </button>
@@ -100,7 +101,7 @@ export function Education() {
           </fieldset>
         ))}
 
-        <button type="button" onClick={() => addSchool()}>
+        <button type="button" onClick={() => addSchool()} className="add-btn">
           Add
         </button>
       </fieldset>
