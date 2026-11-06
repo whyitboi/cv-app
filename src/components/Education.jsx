@@ -89,7 +89,11 @@ export function Education() {
               />
             </label>
             {schoolInfo.length > 1 && (
-              <button type="button" onClick={() => removeSchool(school.id)}>
+              <button
+                type="button"
+                onClick={() => removeSchool(school.id)}
+                aria-label={`Remove school ${index + 1}`}
+              >
                 Remove
               </button>
             )}
@@ -108,7 +112,10 @@ export function Education() {
       {schoolInfo.map((school) => (
         <article key={school.id}>
           <h3>{school.schoolName}</h3>
-          <p>{`${school.degree} ${school.startDate} - ${school.endDate} || Present`}</p>
+          <p>
+            {`${school.degree} ${school.startDate} -`}{" "}
+            {school.endDate || "Present"}
+          </p>
         </article>
       ))}
       <button onClick={() => setIsEditing(true)}>Edit</button>
