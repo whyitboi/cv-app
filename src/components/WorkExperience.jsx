@@ -8,7 +8,7 @@ export function WorkExperience() {
       companyName: "",
       position: "",
       responsibilities: "",
-      starDate: "",
+      startDate: "",
       endDate: "",
     },
   ]);
@@ -27,7 +27,7 @@ export function WorkExperience() {
         companyName: "",
         position: "",
         responsibilities: "",
-        starDate: "",
+        startDate: "",
         endDate: "",
       },
     ]);
@@ -44,7 +44,7 @@ export function WorkExperience() {
     >
       <fieldset>
         <legend>Work Experience</legend>
-        {workInfo.map((index, job) => (
+        {workInfo.map((job, index) => (
           <fieldset key={job.id}>
             <legend>Job {index + 1}</legend>
             <label>
@@ -52,8 +52,8 @@ export function WorkExperience() {
               <input
                 type="text"
                 name="companyName"
-                value={workInfo.companyName}
-                onChange={handleChange}
+                value={job.companyName}
+                onChange={(e) => handleChange(e, job.id)}
                 autoComplete="off"
                 required
               />
@@ -63,21 +63,20 @@ export function WorkExperience() {
               <input
                 type="text"
                 name="position"
-                value={workInfo.position}
-                onChange={handleChange}
+                value={job.position}
+                onChange={(e) => handleChange(e, job.id)}
                 autoComplete="off"
                 required
               />
             </label>
             <label>
               Job Responsibilities:
-              <input
-                type="textarea"
+              <textarea
                 rows="4"
                 cols="6"
                 name="responsibilities"
-                value={workInfo.responsibilities}
-                onChange={handleChange}
+                value={job.responsibilities}
+                onChange={(e) => handleChange(e, job.id)}
               />
             </label>
             <label>
@@ -85,8 +84,8 @@ export function WorkExperience() {
               <input
                 type="month"
                 name="startDate"
-                value={workInfo.startDate}
-                onChange={handleChange}
+                value={job.startDate}
+                onChange={(e) => handleChange(e, job.id)}
               />
             </label>
             <label>
@@ -95,7 +94,7 @@ export function WorkExperience() {
                 type="month"
                 name="endDate"
                 value={workInfo.endDate}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e, job.id)}
                 min={job.starDate}
               />
             </label>
@@ -123,9 +122,16 @@ export function WorkExperience() {
         <article key={job.id}>
           <h3>{job.position}</h3>
           <p>
-            {job.companyName} ` ${job.starDate} - ` {job.endDate || "Present"}
+            {job.companyName} {job.startDate} - {job.endDate || "Present"}
           </p>
-          <ul>{job.responsibilities.split("\n")}</ul>
+          <ul>
+            {job.responsibilities
+              .split("\n")
+              .filter((role) => role.trim() !== "")
+              .map((role, i) => (
+                <li key={i}>{role}</li>
+              ))}
+          </ul>
         </article>
       ))}
       <button onClick={() => setIsEditing(true)}>Edit</button>
