@@ -85,11 +85,14 @@ export function Education() {
                 name="endDate"
                 value={school.endDate}
                 onChange={(e) => handleChange(e, school.id)}
+                min={school.startDate}
               />
             </label>
-            <button type="button" onClick={() => removeSchool(school.id)}>
-              Remove
-            </button>
+            {schoolInfo.length > 1 && (
+              <button type="button" onClick={() => removeSchool(school.id)}>
+                Remove
+              </button>
+            )}
           </fieldset>
         ))}
 
@@ -103,9 +106,9 @@ export function Education() {
     <section>
       <h2>Education</h2>
       {schoolInfo.map((school) => (
-        <article>
+        <article key={school.id}>
           <h3>{school.schoolName}</h3>
-          <p>{`${school.degree} ${school.startDate} - ${school.endDate}`}</p>
+          <p>{`${school.degree} ${school.startDate} - ${school.endDate} || Present`}</p>
         </article>
       ))}
       <button onClick={() => setIsEditing(true)}>Edit</button>
