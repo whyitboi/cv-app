@@ -1,9 +1,14 @@
-// import { useState } from "react";
-// import heroImg from "./assets/hero.png";
-// import reactLogo from "./assets/react.svg";
-// import viteLogo from "./assets/vite.svg";
+import { GeneralInfo } from "./components/GeneralInfo";
+import { Education } from "./components/Education";
+import { WorkExperience } from "./components/WorkExperience";
 // import "./style.css";
 
-export function App() {
-  return <></>;
+export default function App() {
+  return (
+    <>
+      <GeneralInfo />
+      <Education />
+      <WorkExperience />
+    </>
+  );
 }

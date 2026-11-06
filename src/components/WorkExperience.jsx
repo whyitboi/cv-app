@@ -72,7 +72,6 @@ export function WorkExperience() {
             <label>
               Job Responsibilities:
               <textarea
-                rows="4"
                 cols="6"
                 name="responsibilities"
                 value={job.responsibilities}
@@ -93,9 +92,9 @@ export function WorkExperience() {
               <input
                 type="month"
                 name="endDate"
-                value={workInfo.endDate}
+                value={job.endDate}
                 onChange={(e) => handleChange(e, job.id)}
-                min={job.starDate}
+                min={job.startDate}
               />
             </label>
             {workInfo.length > 1 && (
