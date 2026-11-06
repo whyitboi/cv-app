@@ -135,7 +135,7 @@ export function GeneralInfo() {
     </form>
   ) : (
     <section>
-      <h1>{fullname}</h1>
+      <h2>{fullname}</h2>
       <p>{info.jobTitle}</p>
       <address>
         <ul>
