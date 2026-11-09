@@ -1,5 +1,4 @@
 import { useState } from "react";
-// import "./style.css";
 
 export function GeneralInfo() {
   const [isEditing, setIsEditing] = useState(true);

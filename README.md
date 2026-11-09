@@ -4,7 +4,7 @@ A React app for building a simple CV. Fill in your general information, educatio
 
 **Live page:** _add your Vercel link here_
 
-![Screenshot of the CV Builder](screenshot.png)
+![Screenshot of the CV Builder](preview.png)
 
 ## Features
 
@@ -27,12 +27,12 @@ npm install
 npm run dev
 ```
 
-| Command           | What it does                              |
-| ----------------- | ----------------------------------------- |
-| `npm run dev`     | Starts the development server             |
-| `npm run build`   | Creates the production build in `dist/`   |
-| `npm run preview` | Serves the production build locally       |
-| `npm run lint`    | Checks the code with ESLint               |
+| Command           | What it does                            |
+| ----------------- | --------------------------------------- |
+| `npm run dev`     | Starts the development server           |
+| `npm run build`   | Creates the production build in `dist/` |
+| `npm run preview` | Serves the production build locally     |
+| `npm run lint`    | Checks the code with ESLint             |
 
 ## About this project
 
