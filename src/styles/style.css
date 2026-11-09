@@ -45,7 +45,7 @@ main > section {
   }
 }
 
-/*Editing*/
+/*Editing Styling*/
 form {
   display: grid;
   justify-items: center;
@@ -90,7 +90,7 @@ fieldset > button {
   justify-self: end;
 }
 
-/*Button Styling*/
+/*Display Styling*/
 section {
   display: grid;
   gap: 0.75rem;
@@ -99,6 +99,59 @@ section h2,
 section h3,
 section p {
   margin: 0;
+}
+section > h2 {
+  font-size: 1.25rem;
+  color: var(--accent);
+}
+article {
+  display: grid;
+  gap: 0.25rem;
+}
+article h3 {
+  font-size: 1.05rem;
+}
+article p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+article ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+}
+address {
+  font-style: normal;
+}
+address ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+address a {
+  color: var(--accent);
+  overflow-wrap: anywhere;
+}
+section > button {
+  justify-self: end;
+}
+.fullName {
+  font-size: 2rem;
+  color: var(--textColor);
+}
+@media (min-width: 40rem) {
+  fieldset {
+    grid-template-columns: 12rem minmax(0, 1fr);
+    row-gap: 1rem;
+  }
+  label {
+    row-gap: 0;
+  }
+  section > h2.fullName {
+    font-size: 2.5rem;
+  }
 }
 
 /*Button Styling*/
@@ -111,7 +164,6 @@ button {
   color: var(--accent);
   cursor: pointer;
 }
-
 button:hover {
   background: color-mix(in srgb, var(--accent) 10%, transparent);
 }
