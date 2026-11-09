@@ -1,17 +1,39 @@
-# React + Vite
+# CV Builder
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React app for building a simple CV. Fill in your general information, education and work experience, submit each section to see it laid out as a CV, and click Edit to change it at any time.
 
-Currently, two official plugins are available:
+**Live page:** _add your Vercel link here_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+![Screenshot of the CV Builder](screenshot.png)
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Three sections: General information, Education and Work experience
+- Edit and submit each section on its own
+- Add or remove as many schools and jobs as you need
+- Responsibilities typed on separate lines display as a bulleted list
+- Responsive layout for phones, tablets and desktops
 
-## Expanding the ESLint configuration
+## Built with
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# react-app
+- [React](https://react.dev/)
+- [Vite](https://vite.dev/)
+- CSS (Grid, Flexbox, subgrid, media queries)
+
+## Running it locally
+
+```
+npm install
+npm run dev
+```
+
+| Command           | What it does                              |
+| ----------------- | ----------------------------------------- |
+| `npm run dev`     | Starts the development server             |
+| `npm run build`   | Creates the production build in `dist/`   |
+| `npm run preview` | Serves the production build locally       |
+| `npm run lint`    | Checks the code with ESLint               |
+
+## About this project
+
+This is [The Odin Project's CV Application project](https://www.theodinproject.com/lessons/node-path-react-new-cv-application) from the React course.
