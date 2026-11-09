@@ -2,11 +2,41 @@
   --accent: #2563eb;
   --accentDark: #1d4ed8;
   --danger: #dc2626;
-  --text: #1f2937;
+  --textColor: #1f2937;
   --muted: #6b7280;
   --border: #e5e7eb;
-  --pageBackground:  
-;
+  --pageBackground: #f3f4f6;
+  --cardBackground: #ffffff;
+  --content: 34rem;
+  --padding: 1rem;
+  font-family: system-ui, "Segoe UI", Roboto, sans-serif;
+  color: var(--textColor);
+  line-height: 1.5;
+}
+body {
+  margin: 0;
+  padding: var(--padding);
+  background: var(--pageBackground);
+}
+main {
+  display: grid;
+  gap: 2rem;
+}
+main > h1 {
+  text-align: center;
+  margin: 0;
+}
+main > form,
+main > section {
+  width: min(100%, var(--content));
+  margin-inline: auto;
+  box-sizing: border-box;
+  background: var(--cardBackground);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1px 3px rgb(0 0 0/ 0.08),
+    0 4px 12px rgb(0 0 0 / 0.04);
 }
 
 form {
@@ -72,4 +102,10 @@ button[type="submit"]:hover {
 }
 .remove-btn:hover {
   background: color-mix(in srgb, var(--danger) 10%, transparent);
+}
+@media (max-width: 24rem) {
+  main > form,
+  main > section {
+    padding: var(--padding);
+  }
 }
